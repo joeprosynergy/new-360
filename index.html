@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessHub - Integrated Business Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-container">
+            <div class="login-card">
+                <h1>BusinessHub</h1>
+                <p>Integrated Business Management Platform</p>
+                <button id="googleLoginBtn" class="btn btn--primary btn--lg btn--full-width">
+                    <span>🔑</span> Sign in with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="app-title">BusinessHub</h1>
+                </div>
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-page="crm" data-module="crm">CRM</button>
+                    <button class="nav-btn" data-page="bookkeeping" data-module="bookkeeping">Bookkeeping</button>
+                    <button class="nav-btn" data-page="projects" data-module="projects">Projects</button>
+                    <button class="nav-btn" data-page="settings">Settings</button>
+                </nav>
+                <div class="header-right">
+                    <div class="user-info">
+                        <img id="userAvatar" src="" alt="User" class="user-avatar">
+                        <span id="userName">User</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard -->
+            <div id="dashboard" class="page active">
+                <div class="page-header">
+                    <h2>Dashboard</h2>
+                    <p>Manage your business modules and view key metrics</p>
+                </div>
+
+                <!-- Module Controls -->
+                <section class="module-controls">
+                    <h3>Module Controls</h3>
+                    <div class="modules-grid">
+                        <div class="module-card" data-module="crm">
+                            <div class="module-header">
+                                <h4>CRM</h4>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="crmToggle" checked>
+                                    <label for="crmToggle"></label>
+                                </div>
+                            </div>
+                            <p>Contact management and sales pipeline</p>
+                            <div class="module-price">$10/month</div>
+                        </div>
+
+                        <div class="module-card" data-module="bookkeeping">
+                            <div class="module-header">
+                                <h4>Bookkeeping</h4>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="bookkeepingToggle" checked>
+                                    <label for="bookkeepingToggle"></label>
+                                </div>
+                            </div>
+                            <p>Financial tracking and reporting</p>
+                            <div class="module-price">$10/month</div>
+                        </div>
+
+                        <div class="module-card" data-module="projects">
+                            <div class="module-header">
+                                <h4>Project Management</h4>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="projectsToggle" checked>
+                                    <label for="projectsToggle"></label>
+                                </div>
+                            </div>
+                            <p>Task and project tracking</p>
+                            <div class="module-price">$10/month</div>
+                        </div>
+
+                        <div class="module-card" data-module="messaging">
+                            <div class="module-header">
+                                <h4>Messaging</h4>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="messagingToggle" checked>
+                                    <label for="messagingToggle"></label>
+                                </div>
+                            </div>
+                            <p>Team communication and chat</p>
+                            <div class="module-price">Free</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dashboard Metrics -->
+                <section class="dashboard-metrics">
+                    <div class="metrics-grid">
+                        <div class="metric-card crm-metric">
+                            <h4>Active Deals</h4>
+                            <div class="metric-value">3</div>
+                            <div class="metric-label">$150,000 Total</div>
+                        </div>
+                        <div class="metric-card bookkeeping-metric">
+                            <h4>Monthly Revenue</h4>
+                            <div class="metric-value">$12,500</div>
+                            <div class="metric-label">This Month</div>
+                        </div>
+                        <div class="metric-card projects-metric">
+                            <h4>Active Projects</h4>
+                            <div class="metric-value">2</div>
+                            <div class="metric-label">In Progress</div>
+                        </div>
+                        <div class="metric-card messaging-metric">
+                            <h4>Messages Today</h4>
+                            <div class="metric-value">12</div>
+                            <div class="metric-label">Team Chat</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- CRM Module -->
+            <div id="crm" class="page">
+                <div class="page-header">
+                    <h2>CRM</h2>
+                    <button class="btn btn--primary">Add Contact</button>
+                </div>
+
+                <div class="crm-content">
+                    <!-- Deal Pipeline -->
+                    <section class="pipeline-section">
+                        <h3>Sales Pipeline</h3>
+                        <div class="pipeline">
+                            <div class="pipeline-stage">
+                                <h4>Lead</h4>
+                                <div class="pipeline-deals" data-stage="Lead"></div>
+                            </div>
+                            <div class="pipeline-stage">
+                                <h4>Qualified</h4>
+                                <div class="pipeline-deals" data-stage="Qualified"></div>
+                            </div>
+                            <div class="pipeline-stage">
+                                <h4>Proposal</h4>
+                                <div class="pipeline-deals" data-stage="Proposal"></div>
+                            </div>
+                            <div class="pipeline-stage">
+                                <h4>Negotiation</h4>
+                                <div class="pipeline-deals" data-stage="Negotiation"></div>
+                            </div>
+                            <div class="pipeline-stage">
+                                <h4>Closed</h4>
+                                <div class="pipeline-deals" data-stage="Closed"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contacts List -->
+                    <section class="contacts-section">
+                        <h3>Contacts</h3>
+                        <div class="contacts-list"></div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Bookkeeping Module -->
+            <div id="bookkeeping" class="page">
+                <div class="page-header">
+                    <h2>Bookkeeping</h2>
+                    <div class="page-actions">
+                        <button class="btn btn--outline">Create Invoice</button>
+                        <button class="btn btn--primary">Add Transaction</button>
+                    </div>
+                </div>
+
+                <div class="bookkeeping-content">
+                    <!-- Financial Summary -->
+                    <section class="financial-summary">
+                        <div class="summary-cards">
+                            <div class="summary-card income">
+                                <h4>Total Income</h4>
+                                <div class="amount positive">$12,500</div>
+                            </div>
+                            <div class="summary-card expenses">
+                                <h4>Total Expenses</h4>
+                                <div class="amount negative">$1,550</div>
+                            </div>
+                            <div class="summary-card profit">
+                                <h4>Net Profit</h4>
+                                <div class="amount positive">$10,950</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Transactions -->
+                    <section class="transactions-section">
+                        <h3>Recent Transactions</h3>
+                        <div class="transactions-list"></div>
+                    </section>
+
+                    <!-- Invoices -->
+                    <section class="invoices-section">
+                        <h3>Invoices</h3>
+                        <div class="invoices-list"></div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Projects Module -->
+            <div id="projects" class="page">
+                <div class="page-header">
+                    <h2>Project Management</h2>
+                    <button class="btn btn--primary">New Project</button>
+                </div>
+
+                <div class="projects-content">
+                    <!-- Projects Overview -->
+                    <section class="projects-overview">
+                        <div class="projects-grid"></div>
+                    </section>
+
+                    <!-- Tasks -->
+                    <section class="tasks-section">
+                        <h3>Recent Tasks</h3>
+                        <div class="tasks-list"></div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div id="settings" class="page">
+                <div class="page-header">
+                    <h2>Settings</h2>
+                </div>
+
+                <div class="settings-content">
+                    <!-- Subscription Management -->
+                    <section class="subscription-section">
+                        <h3>Subscription & Billing</h3>
+                        <div class="subscription-card">
+                            <div class="subscription-summary">
+                                <h4>Current Plan</h4>
+                                <div class="plan-details">
+                                    <div class="active-modules" id="activeModulesList"></div>
+                                    <div class="total-cost">
+                                        Total: <span id="totalCost">$30</span>/month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Module Settings -->
+                    <section class="module-settings">
+                        <h3>Module Settings</h3>
+                        <div class="settings-modules">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>CRM Module</h4>
+                                    <p>Contact management and sales pipeline</p>
+                                </div>
+                                <div class="setting-control">
+                                    <span class="setting-price">$10/month</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="settingsCrmToggle" checked>
+                                        <label for="settingsCrmToggle"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Bookkeeping Module</h4>
+                                    <p>Financial tracking and reporting</p>
+                                </div>
+                                <div class="setting-control">
+                                    <span class="setting-price">$10/month</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="settingsBookkeepingToggle" checked>
+                                        <label for="settingsBookkeepingToggle"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Project Management</h4>
+                                    <p>Task and project tracking</p>
+                                </div>
+                                <div class="setting-control">
+                                    <span class="setting-price">$10/month</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="settingsProjectsToggle" checked>
+                                        <label for="settingsProjectsToggle"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Messaging</h4>
+                                    <p>Team communication and chat</p>
+                                </div>
+                                <div class="setting-control">
+                                    <span class="setting-price">Free</span>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="settingsMessagingToggle" checked>
+                                        <label for="settingsMessagingToggle"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Messaging Sidebar -->
+        <aside id="messagingSidebar" class="messaging-sidebar">
+            <div class="sidebar-header">
+                <h3>Messages</h3>
+                <button class="sidebar-toggle" id="sidebarToggle">←</button>
+            </div>
+            <div class="sidebar-content">
+                <div class="channels">
+                    <div class="channel active" data-channel="general">General</div>
+                    <div class="channel" data-channel="projects">Projects</div>
+                    <div class="channel" data-channel="deals">Deals</div>
+                </div>
+                <div class="messages" id="messagesList"></div>
+                <div class="message-input">
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button id="sendMessage" class="btn btn--primary btn--sm">Send</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
